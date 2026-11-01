@@ -1,0 +1,47 @@
+﻿{
+  "name": "ACM0014 Treatment of Wastewater",
+  "version": "1.0.0",
+  "description": "UNFCCC ACM0014 Digitized Methodology for Methane Avoidance & Wastewater Treatment",
+  "topicDescription": "ACM0014 MRV Policy Instance",
+  "policyTag": "Tag_ACM0014_Wastewater",
+  "policyRoles": [
+    "Standard_Registry",
+    "Project_Proponent",
+    "VVB_Auditor"
+  ],
+  "policyWorkflow": {
+    "blockType": "policyContainerBlock",
+    "children": [
+      {
+        "blockType": "roleBlock",
+        "tag": "select_role",
+        "roles": ["Project_Proponent", "VVB_Auditor"]
+      },
+      {
+        "blockType": "requestNavigationBlock",
+        "tag": "project_onboarding",
+        "permissions": ["Project_Proponent"],
+        "schema": "#ACM0014_ProjectSetup"
+      },
+      {
+        "blockType": "requestNavigationBlock",
+        "tag": "periodic_mrv_submission",
+        "permissions": ["Project_Proponent"],
+        "schema": "#ACM0014_MonitoringReport"
+      },
+      {
+        "blockType": "calculateBlock",
+        "tag": "execute_acm0014_math",
+        "calculationScriptRef": "acm0014-calc.js"
+      },
+      {
+        "blockType": "mintDocumentBlock",
+        "tag": "mint_hedary_carbon_token",
+        "tokenField": "tokensToMint",
+        "tokenType": "fungible",
+        "tokenSymbol": "ACM14-CO2",
+        "accountType": "Project_Proponent"
+      }
+    ]
+  }
+}

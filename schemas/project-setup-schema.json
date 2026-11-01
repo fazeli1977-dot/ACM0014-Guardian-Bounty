@@ -1,0 +1,14 @@
+﻿{
+  "$id": "#ACM0014_ProjectSetup",
+  "title": "ACM0014 Project Description & Baseline Setup",
+  "description": "Initial registration schema for wastewater treatment facility under ACM0014",
+  "type": "object",
+  "properties": {
+    "projectTitle": { "type": "string", "title": "Project Title" },
+    "facilityLocation": { "type": "string", "title": "Facility Coordinates / Address" },
+    "baselineLagoonDepth_m": { "type": "number", "minimum": 0, "default": 2.5, "title": "Baseline Lagoon Depth (m)" },
+    "historicalCodRemovalEfficiency": { "type": "number", "minimum": 0, "maximum": 1, "default": 0.75, "title": "Historical COD Removal Efficiency (0-1)" },
+    "gridEmissionFactor_tCO2_MWh": { "type": "number", "minimum": 0, "default": 0.65, "title": "Regional Grid Emission Factor (tCO2e/MWh)" }
+  },
+  "required": ["projectTitle", "facilityLocation", "baselineLagoonDepth_m"]
+}

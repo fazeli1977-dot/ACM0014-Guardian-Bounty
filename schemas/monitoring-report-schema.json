@@ -1,0 +1,25 @@
+﻿{
+  "$id": "#ACM0014_MonitoringReport",
+  "title": "ACM0014 MRV Monitoring Report",
+  "description": "Periodic monitoring data for wastewater inflow, COD, and energy consumption",
+  "type": "object",
+  "properties": {
+    "monitoringPeriodStart": { "type": "string", "format": "date", "title": "Period Start Date" },
+    "monitoringPeriodEnd": { "type": "string", "format": "date", "title": "Period End Date" },
+    "wastewaterFlowVolume_m3": { "type": "number", "minimum": 0, "title": "Wastewater Volume Inflow (m3)" },
+    "codInflowConcentration_mg_L": { "type": "number", "minimum": 0, "title": "Inflow COD Concentration (mg/L)" },
+    "codRemovalEfficiency_BL": { "type": "number", "minimum": 0, "maximum": 1, "default": 0.75, "title": "Baseline COD Removal Efficiency" },
+    "electricityConsumption_kWh": { "type": "number", "minimum": 0, "title": "Project Electricity Consumption (kWh)" },
+    "gridEmissionFactor_tCO2_MWh": { "type": "number", "minimum": 0, "default": 0.65, "title": "Grid Emission Factor (tCO2e/MWh)" },
+    "biogasCaptured_m3": { "type": "number", "minimum": 0, "default": 0, "title": "Biogas Captured (m3)" },
+    "methaneFraction_percent": { "type": "number", "minimum": 0, "maximum": 100, "default": 60, "title": "Methane Fraction (%)" },
+    "flaringEfficiency": { "type": "number", "minimum": 0, "maximum": 1, "default": 0.90, "title": "Flare Efficiency (0-1)" }
+  },
+  "required": [
+    "monitoringPeriodStart",
+    "monitoringPeriodEnd",
+    "wastewaterFlowVolume_m3",
+    "codInflowConcentration_mg_L",
+    "electricityConsumption_kWh"
+  ]
+}
